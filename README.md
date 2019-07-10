@@ -13,7 +13,7 @@ REST + SOAP APIs for adding and listing messages
 ## Endpoints
 - GET `/message`: List messages
 - POST `/message` with JSON body: Add a message
-- POST `/soap`: SOAP request
+- POST `/soap`: SOAP request (only for adding a message)
 
 ## REST Examples
 - GET `localhost:5000/message?version=2&format=xml` results in the response below with status 200 (OK)
