@@ -50,8 +50,8 @@ REST + SOAP APIs for adding and listing messages
 }
 ```
 
-## POST Examples
-- Request
+## SOAP Examples
+- POST request to `localhost:5000/soap`
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
