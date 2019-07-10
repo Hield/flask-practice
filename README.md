@@ -1,6 +1,6 @@
 # Flask practice: Message board
 
-REST APIs for adding and listing messages
+REST + SOAP APIs for adding and listing messages
 
 ## Requirements
 - Python 3
@@ -13,8 +13,9 @@ REST APIs for adding and listing messages
 ## Endpoints
 - GET `/message`: List messages
 - POST `/message` with JSON body: Add a message
+- POST `/soap`: SOAP request
 
-## Examples
+## REST Examples
 - GET `localhost:5000/message?version=2&format=xml` results in the response below with status 200 (OK)
 ```
 <?xml version='1.0' encoding='utf8'?>
@@ -49,3 +50,29 @@ REST APIs for adding and listing messages
 }
 ```
 
+## POST Examples
+- Request
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+     <CreateMessage xmlns="http://example.com/sample.wsdl">
+     	<title>A new title, baby</title>
+     	<content>A new content, dear</content>
+     	<sender>Anonymous</sender>
+     	<url>http://www.yahoo.com</url>
+    </CreateMessage>
+   </soap:Body>
+</soap:Envelope>
+```
+- Response
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soap:Body>
+        <CreateMessageResponse xmlns="">
+            <result>Success</result>
+        </CreateMessageResponse>
+    </soap:Body>
+</soap:Envelope>
+```
