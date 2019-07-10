@@ -15,7 +15,7 @@ REST APIs for adding and listing messages
 - POST `/message` with JSON body: Add a message
 
 ## Examples
-- GET `localhost:5000/message?version=2&format=json` results in the response below with status 200 (OK)
+- GET `localhost:5000/message?version=2&format=xml` results in the response below with status 200 (OK)
 ```
 <?xml version='1.0' encoding='utf8'?>
 <messages>
